@@ -379,7 +379,6 @@ img{max-width: 100%;height: auto;border: 0;}
   /* comman button */
   .cat-tab{display: none;}
   .cat-tab.active{display: block;}
-
   .Instagrams{padding: 34px 0;}
   .inst{position: relative;background: #111111;}
   .social-media-1{font-weight: 500;font-size: 14px;line-height: 100%;color: #FFFFFF;background: #202025;border-radius: 8px;padding: 12px 24px;}
@@ -388,10 +387,9 @@ img{max-width: 100%;height: auto;border: 0;}
   .inst-scnd .right-img img{ height: auto;border-radius: 10px; }
   /* .inst-scnd .right-img {position: relative;} */
   .inst-scnd .insa-btn{position: absolute; top: 42%; left: 74%;}
-  button{text-align: center; cursor: pointer;padding: 16px;width: 140px;height: 51px;}
-  .load-more{font-weight: 500;font-size: 16px;line-height: 19px; display: flex; align-items: center;letter-spacing: -0.01em;color: #888891;border: 1px solid #888891;background: #000000;
-    border-radius: 40px;margin: 0 auto;}
-    .second{padding: 40px 0;}
+   button{text-align: center; cursor: pointer;padding: 16px;width: 140px;height: 51px;}
+  .load-more{font-weight: 500;font-size: 16px;line-height: 19px; display: flex; align-items: center;letter-spacing: -0.01em;color: #888891;border: 1px solid #888891;background: #000000;border-radius: 40px;margin: 0 auto;}
+  .second{padding: 40px 0;}
 /*Medai query*/
 @media screen and (max-width: 1298px) {
 	.container{max-width: 100%;padding: 0 20px;}
