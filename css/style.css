@@ -29,7 +29,7 @@ img{max-width: 100%;height: auto;border: 0;}
 .Social{margin-bottom: 200px;}
 .Social .social-txt{font-weight: 700;font-size: 48px; line-height: 100%; text-align: center; letter-spacing: -0.01em;color: #FFFFFF;margin: 0 auto;}
 
-.di-flex{display: flex;flex-direction: row;justify-content: space-between; align-items: center; margin: 0 auto;}
+.di-flex{display: flex;flex-direction: row;justify-content: flex-start; align-items: center; margin: 0 auto;flex-wrap: wrap;}
 .first-fold { background-image: linear-gradient(273deg, rgba(0, 0, 0, 0) 0%, #000000 60.82%), url(../img/backgroung.png); background-attachment: scroll;background-repeat: no-repeat; background-position: right top; background-size: contain;overflow: hidden;padding: 120px 0 0 0;}
 .block{display: block;}
 .first-part{text-align: left;  }

@@ -64,8 +64,8 @@ let ytviditem = [
 
 var loadmorebtn = document.getElementById('loadmore');
 var itemcontainer = document.getElementsByClassName('thumbimg')[0];
-var curindx = 0;
-var batchsize = 4;
+let curindx = 0;
+var batchsize = 2;
 
 function loadData(){
   let nextitem = ytviditem.slice(curindx, curindx + batchsize);
@@ -89,12 +89,10 @@ function loadData(){
                         xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/" x="0px"
                         y="0px" width="38px" height="38px" viewBox="0 0 213.7 213.7"
                         enable-background="new 0 0 213.7 213.7" xml:space="preserve">
-
                         <polygon class='triangle' id="XMLID_18_" fill="none" stroke-width="10"
                             stroke-linecap="round" stroke-linejoin="round"
                             stroke-miterlimit="10" points="
         73.5,62.5 128.5,95.8 73.5,129.1 " />
-
                     </svg>
                 </a>
             </div>
@@ -105,15 +103,23 @@ function loadData(){
         </div>
     </div>`
 
-        itemcontainer.appendChild(thumbHtml);        
-        // itemcontainer.innerHTML += thumbHtml;        
+        // itemcontainer.appendChild(thumbHtml);        
+        itemcontainer.innerHTML += thumbHtml; 
+        
+         // Check if there are more items to be loaded
+
+        console.log(ytviditem.length, curindx.length);
         console.log(itemcontainer);
     })
 
 }
 loadmorebtn.addEventListener('click', function(){    
     loadData()
+    
     // curindx += batchsize; 
+    if(curindx >= ytviditem.length){
+        loadmorebtn.disabled = true
+     }
     
 
 })
