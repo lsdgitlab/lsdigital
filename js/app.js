@@ -40,13 +40,85 @@ card.onmousemove = function (e) {
  card.style.setProperty('--x', x + 'px');
  card.style.setProperty('--y', y + 'px');
 }
-// window.onload = function () {
-//  var imgs = document.querySelectorAll(".card-video img");
-//  var divs = document.querySelectorAll(".card");
-//  for (var i = 0; i < imgs.length; i++) {
-//     //  console.log(divs[i]);
-//      divs[i].style.backgroundImage = "url(" + imgs[i].src + ")";
-//  }
+window.onload = function () {
+ var imgs = document.querySelectorAll(".card-video img");
+ var divs = document.querySelectorAll(".card");
+ for (var i = 0; i < imgs.length; i++) {
+    //  console.log(divs[i]);
+     divs[i].style.backgroundImage = "url(" + imgs[i].src + ")";
+ }
 
-// }
+}
+
+let ytviditem = [
+    { id: 1, datavideoid: "5QoVTIlm8Do", cardthumbImg: "image-452.png",sharePlatform :"Facebook", name:"Prema", profiledesc : "Facebook's Professional Profiles" }, 
+    { id: 2, datavideoid: "zM3rDvfx7Pg", cardthumbImg: "image-452.png",sharePlatform :"Facebook", name:"Prema", profiledesc : "Facebook's Professional Profiles" },
+    { id: 3, datavideoid: "DESJSNxhq8k", cardthumbImg: "image-452.png",sharePlatform :"Facebook", name:"Prema", profiledesc : "Facebook's Professional Profiles" }, 
+    { id: 4, datavideoid: "5QoVTIlm8Do", cardthumbImg: "image-452.png",sharePlatform :"Facebook", name:"Prema", profiledesc : "Facebook's Professional Profiles" }, 
+    { id: 5, datavideoid: "378R-xBqTf4", cardthumbImg: "image-452.png",sharePlatform :"Facebook", name:"Prema", profiledesc : "Facebook's Professional Profiles" }, 
+    { id: 6, datavideoid: "5QoVTIlm8Do", cardthumbImg: "image-452.png",sharePlatform :"Facebook", name:"Prema", profiledesc : "Facebook's Professional Profiles" }, 
+    { id: 7, datavideoid: "5QoVTIlm8Do", cardthumbImg: "image-452.png",sharePlatform :"Facebook", name:"Prema", profiledesc : "Facebook's Professional Profiles" }, 
+    { id: 8, datavideoid: "5QoVTIlm8Do", cardthumbImg: "image-452.png",sharePlatform :"Facebook", name:"Prema", profiledesc : "Facebook's Professional Profiles" },  
+];
+
+
+var loadmorebtn = document.getElementById('loadmore');
+var itemcontainer = document.getElementsByClassName('thumbimg')[0];
+var curindx = 0;
+var batchsize = 4;
+
+function loadData(){
+  let nextitem = ytviditem.slice(curindx, curindx + batchsize);
+    var thumbHtml = '';
+   
+    nextitem.forEach(function(item){
+        //    console.log(item.datavideoid);        
+        thumbHtml += `<div class="thumbnail">
+        <div class="card video-button" data-video-id="${item.datavideoid}">
+            <div class="card-play"></div>
+            <div class="card-video">
+                <img src="img/${item.cardthumbImg}" class="card-img" alt="">
+            </div>
+        </div>
+        <p class="sub-txt">${item.sharePlatform}</p>
+        <div class="di-flex icon-txt">
+            <div class="thumb-icon">
+                <a href='#' class="playBut sm video-button" data-video-id="${item.datavideoid}">
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink"
+                        xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/" x="0px"
+                        y="0px" width="38px" height="38px" viewBox="0 0 213.7 213.7"
+                        enable-background="new 0 0 213.7 213.7" xml:space="preserve">
+
+                        <polygon class='triangle' id="XMLID_18_" fill="none" stroke-width="10"
+                            stroke-linecap="round" stroke-linejoin="round"
+                            stroke-miterlimit="10" points="
+        73.5,62.5 128.5,95.8 73.5,129.1 " />
+
+                    </svg>
+                </a>
+            </div>
+            <div class="thumbTxt">
+                <p class="thumbNam">${item.name}</p>
+                <p class="thumbsmltxt">${item.profiledesc}</p>
+            </div>
+        </div>
+    </div>`
+
+        itemcontainer.appendChild(thumbHtml);        
+        // itemcontainer.innerHTML += thumbHtml;        
+        console.log(itemcontainer);
+    })
+
+}
+loadmorebtn.addEventListener('click', function(){    
+    loadData()
+    // curindx += batchsize; 
+    
+
+})
+
+
+
+
 
