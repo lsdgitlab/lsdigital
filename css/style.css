@@ -29,7 +29,7 @@ img{max-width: 100%;height: auto;border: 0;}
 .Social{margin-bottom: 200px;}
 .Social .social-txt{font-weight: 700;font-size: 48px; line-height: 100%; text-align: center; letter-spacing: -0.01em;color: #FFFFFF;margin: 0 auto;}
 
-.di-flex{display: flex;flex-direction: row;justify-content: space-between; align-items: center; margin: 0 auto;}
+.di-flex{display: flex;flex-direction: row;justify-content: flex-start; align-items: center; margin: 0 auto;flex-wrap: wrap;}
 .first-fold { background-image: linear-gradient(273deg, rgba(0, 0, 0, 0) 0%, #000000 60.82%), url(../img/backgroung.png); background-attachment: scroll;background-repeat: no-repeat; background-position: right top; background-size: contain;overflow: hidden;padding: 120px 0 0 0;}
 .block{display: block;}
 .first-part{text-align: left;  }
@@ -49,7 +49,7 @@ img{max-width: 100%;height: auto;border: 0;}
 .thumbnail img{border-radius: 8px;}
 .thumbnail .icon-txt{justify-content: left;align-items: initial; padding: 20px 0 0 0;align-items: flex-start;}
 .thumbnail .icon-txt .thumb-icon { vertical-align: top;min-width: 52px;box-sizing: border-box;}
-.thumbTxt {margin: 0 auto;}
+.thumbTxt {margin: 0;}
 .thumbTxt .thumbNam {margin: 0 auto; font-style: normal;  font-weight: 400; font-size: 14px;line-height: normal; color: #FFFFFF;margin-bottom: 12px;}
 .thumbTxt .thumbsmltxt{max-width: 250px; font-weight: 600; font-size: 18px; line-height: 25px;letter-spacing: -0.03em;color: #FFFFFF;min-height: 50px;}
 .ldtvinsights{background-color: #111111;padding: 48px 0;}
@@ -379,7 +379,6 @@ img{max-width: 100%;height: auto;border: 0;}
   /* comman button */
   .cat-tab{display: none;}
   .cat-tab.active{display: block;}
-
   .Instagrams{padding: 34px 0;}
   .inst{position: relative;background: #111111;}
   .social-media-1{font-weight: 500;font-size: 14px;line-height: 100%;color: #FFFFFF;background: #202025;border-radius: 8px;padding: 12px 24px;}
@@ -388,10 +387,112 @@ img{max-width: 100%;height: auto;border: 0;}
   .inst-scnd .right-img img{ height: auto;border-radius: 10px; }
   /* .inst-scnd .right-img {position: relative;} */
   .inst-scnd .insa-btn{position: absolute; top: 42%; left: 74%;}
-  button{text-align: center; cursor: pointer;padding: 16px;width: 140px;height: 51px;}
-  .load-more{font-weight: 500;font-size: 16px;line-height: 19px; display: flex; align-items: center;letter-spacing: -0.01em;color: #888891;border: 1px solid #888891;background: #000000;
-    border-radius: 40px;margin: 0 auto;}
-    .second{padding: 40px 0;}
+   button{text-align: center; cursor: pointer;padding: 16px;width: 140px;height: 51px;}
+  .load-more{font-weight: 500;font-size: 16px;line-height: 19px; display: flex; align-items: center;letter-spacing: -0.01em;color: #888891;border: 1px solid #888891;background: #000000;border-radius: 40px;margin: 0 auto;}
+  .second{padding: 40px 0;}
+
+/* Job Listing CSS Start here */
+#career {
+  background: #f8f8f8;
+  height: 100vh;
+}
+
+h1 {
+  margin: 0;
+  padding: 30px 0;
+}
+
+#joblist {
+  color: #fff;
+  border-top: 1px solid #888891;
+  border-bottom: 1px solid #888891;
+  padding: 10px 0;
+  list-style-type: none;
+  display: flex;
+}
+
+#joblist li {
+  color: #888891;
+  padding: 0 30px 0 0;
+}
+
+#joblist li.act {
+  color: #000;
+  border-bottom: 2px solid #f15a22;
+}
+#jobcard dl {
+  box-sizing: border-box;
+    width: 385px;
+    height: 190px;
+    left: 0px;
+    top: 0px;
+    background: #FFFFFF;
+    border: 1px solid #D7D7DA;
+    border-radius: 8px;
+    justify-content: flex-start;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 30px;
+    /* flex-wrap: wrap; */
+    /* gap: 20px; */
+    margin: 10px;
+}
+  #jobcard dl dt {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 140%;
+    letter-spacing: -0.01em;
+    /* justify-content: center; */
+    /* align-items: center; */
+    display: flex;
+}
+#jobcard dl dd, ul {margin: 0; padding: 0 ;}
+#jobcard dl dd p {font-size: 16px;
+  line-height: 140%;
+  /* or 22px */
+  
+  letter-spacing: -0.01em;
+  
+  /* Neutral (High-Emphasis)/Raisin-black */
+  
+  color: #202025;}
+
+  #jobcard dl dd li {
+    display: inline-flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 10px;
+    gap: 23px;
+    /* width: 78px; */
+    height: 36px;
+    background: #F2F2F3;
+    border-radius: 8px;
+    margin-right:5px;
+}
+#jobcard dl dd li a{font-weight: 400;
+  font-size: 16px;
+  line-height: 100%;
+  text-decoration: none;
+  /* identical to box height, or 16px */
+  
+  letter-spacing: -0.01em;
+  
+  /* Neutral (High-Emphasis)/Black-60 */
+  
+  color: #56565D;}
+
+
+
+
+
+
+
+
+
+
+
+
 /*Medai query*/
 @media screen and (max-width: 1298px) {
 	.container{max-width: 100%;padding: 0 20px;}
@@ -414,9 +515,9 @@ img{max-width: 100%;height: auto;border: 0;}
 	.first-part .watch-txt {font-size: 14px	}
 	.first-part .Fbcreator {font-size: 36px;line-height: 42px;}
 	.Ytsld{flex-direction: row;}
-	 .slid{ flex-direction: row; }
-	 .thumbnail .icon-txt {	flex-direction: row;}
-	 .Ytsld .thumbnail {position: relative;margin-right: 14px;flex: none;}
+	.slid{ flex-direction: row; }
+	.thumbnail .icon-txt {	flex-direction: row;}
+	.Ytsld .thumbnail {position: relative;margin-right: 14px;flex: none;}
 	.ldtvinsigh .second-part .ldtv-txt {font-size: 16px;padding-left: 0;text-align: center;padding: 0 20px;line-height: 22px;}
 	.Social {margin-bottom: 16px;}
   /* .web-category .Categories {padding: 10px 0 0 0; margin-bottom: 60px; overflow-x: auto;}
@@ -427,6 +528,7 @@ img{max-width: 100%;height: auto;border: 0;}
     margin-bottom: 60px;
     overflow-x: auto;
 }
+.popup-content {padding: 7px;width: 88%;margin-top: 40px;margin-top: -180px; top: 50%;}
 
 }
 @media screen and (max-width: 768px){
@@ -435,23 +537,24 @@ img{max-width: 100%;height: auto;border: 0;}
 	/* .second-part {border-left: 1px solid rgb(217 217 217 / 80%);} */
 }
 @media screen and (max-width: 767px){
-  .card {width:100%;}
+  .card {width:100%;height: 223px;}
 	.w-50 {width: 100%;}
 	.first-part .watch-txt {font-size: 14px;}
 	.di-flex {flex-direction: column;}
 	.Ytsld{flex-direction: row;}
-	 .slid{ flex-direction: row; }
-   .web-category .Ytsld .slid{ flex-direction: column; }
-   .web-category .Ytsld .slid{overflow-x:inherit;}
-	 .thumbnail .icon-txt {	flex-direction: row;}
-	 .first-part {text-align: center;}
-	 .Ytsld .thumbnail {position: relative;margin-right: 0;flex: none;max-width: 100%;width: 100%;}
+	.slid{ flex-direction: row; }
+  .web-category .Ytsld .slid{ flex-direction: column; }
+  .web-category .Ytsld .slid{overflow-x:inherit;}
+	.thumbnail .icon-txt {	flex-direction: row;}
+	.first-part {text-align: center;}
+	.Ytsld .thumbnail {position: relative;margin-right: 10px;flex: none;max-width: 100%;width: 100%;}
+  .web-category .Ytsld .thumbnail {margin-right: 0;}
 	.ldtvinsigh .second-part .ldtv-txt {font-size: 16px;padding-left: 0;text-align: center;padding: 0 20px;line-height: 22px;margin: 0 auto;}
 	.first-part .Fbcreator {font-size: 32px;line-height: 41px;text-align: center;}
 	.second-part {border-left: none;}
 	.Categories .di-flex {flex-direction: row;}
   .web-category .Categories {padding: 10px 0 0 0;margin-bottom: 60px; overflow-x: auto;}
-.web-category .Categories .di-flex {flex-wrap: inherit;justify-content: inherit;}
+  .web-category .Categories .di-flex {flex-wrap: inherit;justify-content: inherit;}
 	.di-flex.fs {	flex-direction: row;}
 	.thindustry .btm-img {display: block;text-align: center;padding: 27px 0;}
 	.thindustry {position: relative;}
@@ -466,15 +569,12 @@ img{max-width: 100%;height: auto;border: 0;}
   .Social {margin-bottom: 74px;}
   .vieo-sec {padding: 10px 0;}
   .Ytsld .thumbnail { align-self: auto;}
-
-
-
-
+  .insta-first .insta-heding {font-size: 26px;line-height: 36px;}
+  .popup-content {padding: 7px;width: 88%;margin-top: 40px;margin-top: -180px; top: 50%;}
+  .clsbtn {right: -18px; top: -25px;}
+  .second {padding: 40px 0 0 0;}
+  .load-more {position: relative;top: -33px;}
 }
-
-
-
-
 
 @media screen and (max-width: 753px){
 	.thindustry .btm-img {top: 244px;}
