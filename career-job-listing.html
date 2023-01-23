@@ -16,6 +16,9 @@
                 <div class="job-cat-list">
                     <ul id="joblist">
                         <!-- <li></li> -->
+                        <div id="nextDiv">
+                            <button id="nextBtn">Next</button>
+                        </div>
                     </ul>
                     <div id="jobcard">
                         <dl>
@@ -71,11 +74,31 @@ jobtabscnt.forEach( function(tabitem){
     var tablistItem = document.createElement('li');
     tablistItem.innerHTML = tabitem;   
 
+    var nextBtn = document.getElementById('nextBtn');
+    var maxTab = 4;
+    var currTab = 0;
+    nextBtn.onclick = function(){
+        alert("check")
+        var currTabs = document.querySelectorAll('.currentTab');
+        currTabs.forEach( function(tab, index){
+            if(index < currTabs.length -1){
+                tab.classList.remove('currentTab');
+                currTabs[index+1].classList.add('currentTab')
+            }else{
+                tab.classList.remove('currentTab');
+                currTabs[0].classList.add('currentTab')
+            }
+        })
+
+    }
+
+
     tablistItem.onclick = function(){
         actTabs = document.querySelectorAll('.act');
-        actTabs.forEach( (acttab)=>{
-            acttab.classList.remove('act')
+        actTabs.forEach( function (actab) {
+            actab.classList.remove('act')
         })
+        tablistItem.classList.add('act')
         // this.classList.toggle('act')
         if(tabitem === 'ALL'){
             showTabAllcnt()
@@ -86,7 +109,6 @@ jobtabscnt.forEach( function(tabitem){
         }        
     }
     jobtabs.appendChild(tablistItem);
-    jobtabs.classList.toggle('act')
 
 
 });
@@ -135,7 +157,6 @@ function showTabAllcnt(){
     jobTabContent.innerHTML = allTabcnt;
     // jobTabContent.innerHTML = 
 }
-
 
 
 
