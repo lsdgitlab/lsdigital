@@ -16,10 +16,11 @@
                 <div class="job-cat-list">
                     <ul id="joblist">
                         <!-- <li></li> -->
-                        <div id="nextDiv">
-                            <button id="nextBtn">Next</button>
-                        </div>
+                        
                     </ul>
+                    <div id="nextDiv">
+                        <button id="nextBtn">Next</button>
+                    </div>
                     <div id="jobcard">
                         <dl>
                             <dt>Sr. Visualiser</dt>
@@ -70,48 +71,156 @@ var jobdetailscnt = {
 var jobtabs = document.getElementById('joblist');
 var jobTabContent = document.getElementById('jobcard')
 
+// option 1 start
+
+// jobtabscnt.forEach( function(tabitem){
+
+//     var tablistItem = document.createElement('li');
+//     tablistItem.innerHTML = tabitem;   
+//     tablistItem.onclick = function(){
+//         actTabs = document.querySelectorAll('.act');
+//         actTabs.forEach( function (actab) {
+//             actab.classList.remove('act')
+//         })
+//         tablistItem.classList.add('act')
+//         // this.classList.toggle('act')
+//         if(tabitem === 'ALL'){
+//             showTabAllcnt()
+            
+//         }else{
+//             showTabcnt(tabitem)           
+            
+//         }        
+//     }
+//     jobtabs.appendChild(tablistItem);
+// });
+
+// option 1 end
+
+// option 2 start
+
+// var nextBtn = document.getElementById('nextBtn');
+// var maxTab = 4;
+// var currentTab = 0;
+
+// jobtabscnt.forEach(function(tabitem){
+//     var tabListItme = document.createElement('li');
+
+//     tabListItme.innerHTML = tabitem;
+//     if(currentTab >= maxTab){
+//         tabListItme.classList.add('hidden')
+//     }
+//     tabListItme.onclick = ()=>{
+//         var actTabs = document.querySelectorAll('.act');
+//         actTabs.forEach( (curactTab)=>{
+//             curactTab.classList.remove('act')
+//         })
+//         tabListItme.classList.add('act')
+//         if(tabitem === 'All'){
+//             showTabAllcnt()
+//         }else{
+//             showTabcnt(tabitem)
+//         }
+//     }
+//     // console.log("Tab List", tabListItme);
+//     jobtabs.appendChild(tabListItme);
+
+// })
+
+// nextBtn.onclick = ()=>{
+//     var tablistItems = document.querySelectorAll('#joblist li');
+//     var nextTab = 0;
+//     for(var i = 0; i >= tablistItems.length; i++){
+//         if(!tablistItems[i].classList.contains('hidden')){
+//             nextTab = i + maxTab;
+//             if(nextTab >= tablistItems.length){
+//                 nextTab = 0;
+//             }
+//         }
+//     }
+//     for(var i =0; i < tablistItems.length; i++){
+//         tablistItems[i].classList.add('hidden')
+//         if(i >= nextTab && i < nextTab + maxTab){
+//             tablistItems[i].classList.remove('hidden')
+//         }
+//     }
+
+// }
+
+var nextBtn = document.getElementById('nextBtn');
+var maxTab = 4;
+var currTab = 0;
+var nextTab = 4;
+
 jobtabscnt.forEach( function(tabitem){
     var tablistItem = document.createElement('li');
     tablistItem.innerHTML = tabitem;   
-
-    var nextBtn = document.getElementById('nextBtn');
-    var maxTab = 4;
-    var currTab = 0;
-    nextBtn.onclick = function(){
-        alert("check")
-        var currTabs = document.querySelectorAll('.currentTab');
-        currTabs.forEach( function(tab, index){
-            if(index < currTabs.length -1){
-                tab.classList.remove('currentTab');
-                currTabs[index+1].classList.add('currentTab')
-            }else{
-                tab.classList.remove('currentTab');
-                currTabs[0].classList.add('currentTab')
-            }
-        })
-
+    if(currTab >= maxTab) {
+        tablistItem.classList.add('hidden');
     }
-
-
     tablistItem.onclick = function(){
-        actTabs = document.querySelectorAll('.act');
+        var actTabs = document.querySelectorAll('.act');
         actTabs.forEach( function (actab) {
-            actab.classList.remove('act')
-        })
-        tablistItem.classList.add('act')
-        // this.classList.toggle('act')
+            actab.classList.remove('act');
+        });
+        tablistItem.classList.add('act');
         if(tabitem === 'ALL'){
-            showTabAllcnt()
-            
+            showTabAllcnt();
         }else{
-            showTabcnt(tabitem)           
-            
+            showTabcnt(tabitem);
         }        
-    }
+    };
     jobtabs.appendChild(tablistItem);
-
-
+    currTab++;
 });
+
+
+// for the show by set of after 4th item on click next
+// nextBtn.onclick = function(){
+//     var tabListItems = document.querySelectorAll('#joblist li');
+//     for(var i = 0; i < tabListItems.length; i++) {
+//         if(i >= nextTab && i < nextTab + maxTab ) {
+//             tabListItems[i].classList.remove('hidden');
+//         } else {
+//             tabListItems[i].classList.add('hidden');
+//         }
+//     }
+//     nextTab += maxTab;
+//     if(nextTab >= tabListItems.length) {
+//         nextTab = 0;
+//     }
+// };
+
+// for the show by one or display one by one on click next
+// nextBtn.onclick = function(){
+//     var tabListItems = document.querySelectorAll('#joblist li');
+//     for(var i = 0; i < tabListItems.length; i++) {
+//         if(i === nextTab ) {
+//             tabListItems[i].classList.remove('hidden');
+//         } else {
+//             tabListItems[i].classList.add('hidden');
+//         }
+//     }
+//     nextTab++;
+//     if(nextTab >= tabListItems.length) {
+//         nextTab = 0;
+//     }
+// };
+
+nextBtn.onclick = function(){
+    var tabListItems = document.querySelectorAll('#joblist li');
+    jobtabs.classList.add('shift-left');
+    setTimeout(function(){
+        tabListItems[0].classList.add('hidden');
+        tabListItems[nextTab].classList.remove('hidden');
+        jobtabs.classList.remove('shift-left');
+        nextTab++;
+        if(nextTab >= tabListItems.length) {
+            nextTab = maxTab;
+        }
+    }, 500);
+};
+
 
 
 function showTabcnt(jbtab){
