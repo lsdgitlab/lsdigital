@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Career Job Listing</title>
+</head>
+
+<body>
+    <div class="main" id="career">
+            <div class="container">
+                <h1>Careers at LS Digital</h1 >
+                <div class="job-cat-list">
+                    <ul id="joblist">
+                        <!-- <li></li> -->
+                        
+                    </ul>
+                    <div id="nextDiv">
+                        <button id="nextBtn">Next</button>
+                    </div>
+                    <div id="jobcard">
+                        <dl>
+                            <dt>Sr. Visualiser</dt>
+                            <dd>
+                                <p>Navi Mumbai, Maharashtra</p>
+                                <ul>
+                                    <li><a href="#">Fulltime</a></li>
+                                    <li><a href="#">Design</a></li>
+                                </ul>
+                            </dd>
+                          </dl>
+                    </div>
+                </div>
+            </div>       
+    </div>
+<script>
+//  JOB list tabs
+var jobtabscnt = ['ALL', 'Accounts & Finance','Admin', 'Business Alliance' , 'Client Success', 'Ad Management & Measurement'];
+
+var jobdetailscnt = {
+    'Accounts & Finance':{
+        position: 'Jr. Executive ',
+        location : 'Navi Mumbai, Maharashtra',
+        jobtype : ['Full Time', 'Design'],
+    },
+    'Admin':{
+        position: 'Programmatic Buying',
+        location : 'Navi Mumbai, Maharashtra',
+        jobtype : ['Full Time','Front End']
+    },
+    'Business Alliance':{
+        position: 'MT - Client Success',
+        location : 'Navi Mumbai, Maharashtra',
+        jobtype : ['SEM','AdWords Management']
+    },
+    'Client Success':{
+        position: 'Google Tag Manager',
+        location : 'Navi Mumbai, Maharashtra',
+        jobtype : ['Full Time','Paid Listing Ads Management']
+    },
+    'Ad Management & Measurement':{
+        position: 'Ad Tag Manager',
+        location : 'Navi Mumbai, Maharashtra',
+        jobtype : ['SEO Services', ' Website SEO Audit']
+    },
+}
+
+var jobtabs = document.getElementById('joblist');
+var jobTabContent = document.getElementById('jobcard')
+
+// option 1 start
+
+// jobtabscnt.forEach( function(tabitem){
+
+//     var tablistItem = document.createElement('li');
+//     tablistItem.innerHTML = tabitem;   
+//     tablistItem.onclick = function(){
+//         actTabs = document.querySelectorAll('.act');
+//         actTabs.forEach( function (actab) {
+//             actab.classList.remove('act')
+//         })
+//         tablistItem.classList.add('act')
+//         // this.classList.toggle('act')
+//         if(tabitem === 'ALL'){
+//             showTabAllcnt()
+            
+//         }else{
+//             showTabcnt(tabitem)           
+            
+//         }        
+//     }
+//     jobtabs.appendChild(tablistItem);
+// });
+
+// option 1 end
+
+// option 2 start
+
+// var nextBtn = document.getElementById('nextBtn');
+// var maxTab = 4;
+// var currentTab = 0;
+
+// jobtabscnt.forEach(function(tabitem){
+//     var tabListItme = document.createElement('li');
+
+//     tabListItme.innerHTML = tabitem;
+//     if(currentTab >= maxTab){
+//         tabListItme.classList.add('hidden')
+//     }
+//     tabListItme.onclick = ()=>{
+//         var actTabs = document.querySelectorAll('.act');
+//         actTabs.forEach( (curactTab)=>{
+//             curactTab.classList.remove('act')
+//         })
+//         tabListItme.classList.add('act')
+//         if(tabitem === 'All'){
+//             showTabAllcnt()
+//         }else{
+//             showTabcnt(tabitem)
+//         }
+//     }
+//     // console.log("Tab List", tabListItme);
+//     jobtabs.appendChild(tabListItme);
+
+// })
+
+// nextBtn.onclick = ()=>{
+//     var tablistItems = document.querySelectorAll('#joblist li');
+//     var nextTab = 0;
+//     for(var i = 0; i >= tablistItems.length; i++){
+//         if(!tablistItems[i].classList.contains('hidden')){
+//             nextTab = i + maxTab;
+//             if(nextTab >= tablistItems.length){
+//                 nextTab = 0;
+//             }
+//         }
+//     }
+//     for(var i =0; i < tablistItems.length; i++){
+//         tablistItems[i].classList.add('hidden')
+//         if(i >= nextTab && i < nextTab + maxTab){
+//             tablistItems[i].classList.remove('hidden')
+//         }
+//     }
+
+// }
+
+var nextBtn = document.getElementById('nextBtn');
+var maxTab = 4;
+var currTab = 0;
+var nextTab = 4;
+
+jobtabscnt.forEach( function(tabitem){
+    var tablistItem = document.createElement('li');
+    tablistItem.innerHTML = tabitem;   
+    if(currTab >= maxTab) {
+        tablistItem.classList.add('hidden');
+    }
+    tablistItem.onclick = function(){
+        var actTabs = document.querySelectorAll('.act');
+        actTabs.forEach( function (actab) {
+            actab.classList.remove('act');
+        });
+        tablistItem.classList.add('act');
+        if(tabitem === 'ALL'){
+            showTabAllcnt();
+        }else{
+            showTabcnt(tabitem);
+        }        
+    };
+    jobtabs.appendChild(tablistItem);
+    currTab++;
+});
+
+
+// for the show by set of after 4th item on click next
+// nextBtn.onclick = function(){
+//     var tabListItems = document.querySelectorAll('#joblist li');
+//     for(var i = 0; i < tabListItems.length; i++) {
+//         if(i >= nextTab && i < nextTab + maxTab ) {
+//             tabListItems[i].classList.remove('hidden');
+//         } else {
+//             tabListItems[i].classList.add('hidden');
+//         }
+//     }
+//     nextTab += maxTab;
+//     if(nextTab >= tabListItems.length) {
+//         nextTab = 0;
+//     }
+// };
+
+// for the show by one or display one by one on click next
+// nextBtn.onclick = function(){
+//     var tabListItems = document.querySelectorAll('#joblist li');
+//     for(var i = 0; i < tabListItems.length; i++) {
+//         if(i === nextTab ) {
+//             tabListItems[i].classList.remove('hidden');
+//         } else {
+//             tabListItems[i].classList.add('hidden');
+//         }
+//     }
+//     nextTab++;
+//     if(nextTab >= tabListItems.length) {
+//         nextTab = 0;
+//     }
+// };
+
+nextBtn.onclick = function(){
+    var tabListItems = document.querySelectorAll('#joblist li');
+    jobtabs.classList.add('shift-left');
+    setTimeout(function(){
+        tabListItems[0].classList.add('hidden');
+        tabListItems[nextTab].classList.remove('hidden');
+        jobtabs.classList.remove('shift-left');
+        nextTab++;
+        if(nextTab >= tabListItems.length) {
+            nextTab = maxTab;
+        }
+    }, 500);
+};
+
+
+
+function showTabcnt(jbtab){
+    var tabCntTab = jobdetailscnt[jbtab];
+    jobtype = "";
+    tabCntTab.jobtype.forEach( (subjobtype)=>{
+        jobtype += `<li><a href="#">${subjobtype}</a></li>`
+    })
+
+    jobTabContent.innerHTML = `
+    <dl>
+        <dt>${tabCntTab.position}</dt>
+        <dd>
+            <p>${tabCntTab.location}</p>
+            <ul>
+                ${jobtype}               
+            </ul>
+        </dd>
+    </dl>
+    `
+}
+
+function showTabAllcnt(){
+    var allTabcnt = "";
+    for(var tabitem in jobdetailscnt){
+        var tabCntTab = jobdetailscnt[tabitem];
+        var jobtype ='';
+        tabCntTab.jobtype.forEach( function(subjobtype){
+            jobtype+= `<li><a href="#">${subjobtype}</a></li>` 
+        })
+        allTabcnt+= `
+        <dl>
+        <dt>${jobdetailscnt[tabitem].position}</dt>
+        <dd>
+            <p>${jobdetailscnt[tabitem].location}</p>
+            <ul>
+                ${jobtype}       
+            </ul>
+        </dd>
+    </dl>
+        `
+    }
+    jobTabContent.innerHTML = allTabcnt;
+    // jobTabContent.innerHTML = 
+}
+
+
+
+
+// function showTabcnt(jbtab){
+//     var tabCntTab = jobdetailscnt[jbtab];
+//     jobTabContent.innerHTML = `
+//     <dl>
+//         <dt>${tabCntTab.position}</dt>
+//         <dd>
+//             <p>${tabCntTab.location}</p>
+//             <ul>
+//                 <li><a href="#">${tabCntTab.jobtype}</a></li>                
+//             </ul>
+//         </dd>
+//     </dl>
+//     `
+// }
+
+// function showTabAllcnt(){
+//     var allTabcnt = "";
+//     for(tabitem in jobdetailscnt){
+//         allTabcnt+= `
+//         <dl>
+//         <dt>${jobdetailscnt[tabitem].position}</dt>
+//         <dd>
+//             <p>${jobdetailscnt[tabitem].location}</p>
+//             <ul>
+//                 <li><a href="#">${jobdetailscnt[tabitem].jobtype}</a></li>                
+//             </ul>
+//         </dd>
+//     </dl>
+//         `
+//     }
+//     jobTabContent.innerHTML = allTabcnt;
+//     // jobTabContent.innerHTML = 
+// }
+
+</script>
+    <!-- <script src="js/app.js"></script> -->
+</body>
+
+</html>
