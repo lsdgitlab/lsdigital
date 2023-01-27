@@ -491,10 +491,13 @@ h1 {
 }
 /* career details end */
 .journey-form .form li label {font-size: 16px;}
-.journey-form .form ul li {
-  padding: 14px 0 5px 0;
-}
+.journey-form .form ul li {padding: 6px 0 6px 0;}
 .journey-form .form {padding: 16px;}
+.journey-form .form input { padding: 16px;}
+.journey-form .form select {padding: 16px;}
+
+
+
 
 }
 
