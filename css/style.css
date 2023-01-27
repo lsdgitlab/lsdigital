@@ -159,7 +159,7 @@ img{max-width: 100%;height: auto;border: 0;}
 /* survey start */
 
 .surveymain{background: #FFFFFF;}
-.survey{margin-bottom: 48px;}
+.survey{margin-bottom: 48px;flex-wrap: nowrap;}
 .survey-heading{font-weight: 700;font-size: 48px;line-height: 150%;color: #202025; margin: 0 auto; margin-bottom: 24px;}
 .survey .recentsrv{position: relative;}
 .srvsecnd{ position: absolute;right: 75px;background: #FFFFFF;box-shadow: 0px 20px 108px rgba(0, 0, 0, 0.08);border-radius: 8px; padding: 30px;top: 22%;}
@@ -298,7 +298,7 @@ h1 {
 }
 #jobcard dl {
   box-sizing: border-box;
-    width: 385px;
+    width: 402px;
     height: 190px;
     left: 0px;
     top: 0px;
