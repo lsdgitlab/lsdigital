@@ -14,13 +14,31 @@
             <div class="container">
                 <h1>Careers at LS Digital</h1 >
                 <div class="job-cat-list">
-                    <ul id="joblist">
-                        <!-- <li></li> -->
-                        
-                    </ul>
-                    <div id="nextDiv">
-                        <button id="nextBtn">Next</button>
+                    <div class="joblistitem">
+                        <ul id="joblist" class="scroll-style">
+                            <!-- <li></li> -->
+                            
+                        </ul>
+                        <a id="nextBtn"><span class="arrow is-left"></span></a>
+
+                        <div class="search-container">
+                            <form action="/search" method="get">
+                              <input class="search expandright" id="searchright" type="search" name="q" placeholder="Search">
+                              <label class="button searchbutton" for="searchright"><span class="mglass">
+                                <svg id="sicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600"><style>.st0{fill:#000;}</style><g id="g3027"><path id="path3029" class="st0" d="M404.046 259.498c0-41-14.6-76-43.7-105.1s-64.2-43.7-105.1-43.7-76 14.6-105.1 43.7-43.7 64.2-43.7 105.1 14.6 76 43.7 105.1 64.2 43.7 105.1 43.7 76-14.6 105.1-43.7 43.7-64.1 43.7-105.1zm170.1 276.4c0 11.5-4.2 21.5-12.6 29.9s-18.4 12.6-29.9 12.6c-12 0-21.9-4.2-29.9-12.6l-113.9-113.6c-39.6 27.5-83.8 41.2-132.5 41.2-31.7 0-62-6.1-90.9-18.4-28.9-12.3-53.8-28.9-74.7-49.8-21-21-37.6-45.9-49.9-74.8s-18.4-59.2-18.4-90.9 6.1-62 18.4-90.9 28.9-53.8 49.8-74.7c20.9-20.9 45.8-37.5 74.7-49.8s59.2-18.4 90.9-18.4 62 6.1 90.9 18.4 53.8 28.9 74.7 49.8 37.5 45.8 49.8 74.7c12.3 28.9 18.4 59.2 18.4 90.9 0 48.7-13.7 92.9-41.2 132.5l113.9 113.9c8.3 8.3 12.4 18.3 12.4 30z"/></g></svg>
+                                <!-- &#9906; -->
+                            </span></label>
+                            </form>
+                          </div>
+
+                        <div class="search">
+                            
+                        </div>
                     </div>
+                    
+                    
+                        
+               
                     <div id="jobcard">
                         <dl>
                             <dt>Sr. Visualiser</dt>
@@ -38,7 +56,32 @@
     </div>
 <script>
 //  JOB list tabs
-var jobtabscnt = ['ALL', 'Accounts & Finance','Admin', 'Business Alliance' , 'Client Success', 'Ad Management & Measurement'];
+// [Biddable Performance
+// Business Alliance
+// Client Success
+// Consulting (Product)
+// Creative
+// Data Solutions
+// Design
+// Digital Planning & Strategy
+// Google Analytics
+// HR
+// IT
+// Legal
+// Marcom
+// Media Buying
+// PR
+// Programmatic Buying
+// QA and PMO
+// SEO
+// Social
+// Strategic Partnerships
+// showJobsBasedOnDepartment('Account & Finance')
+// showJobsBasedOnDepartment('Ad Management & Measurement')
+// showJobsBasedOnDepartment('Admin')
+// showJobsBasedOnDepartment('Adobe')]
+
+var jobtabscnt = ['ALL', 'Accounts & Finance','Admin','Adobe', 'Business Alliance' , 'Client Success', 'Ad Management & Measurement','Data Solutions', 'QA and PMO', 'Social'];
 
 var jobdetailscnt = {
     'Accounts & Finance':{
@@ -47,6 +90,11 @@ var jobdetailscnt = {
         jobtype : ['Full Time', 'Design'],
     },
     'Admin':{
+        position: 'Programmatic Buying',
+        location : 'Navi Mumbai, Maharashtra',
+        jobtype : ['Full Time','Front End']
+    },
+    'Adobe':{
         position: 'Programmatic Buying',
         location : 'Navi Mumbai, Maharashtra',
         jobtype : ['Full Time','Front End']
@@ -66,6 +114,22 @@ var jobdetailscnt = {
         location : 'Navi Mumbai, Maharashtra',
         jobtype : ['SEO Services', ' Website SEO Audit']
     },
+    'Data Solutions':{
+        position: 'Data Solutions Manager',
+        location : 'Navi Mumbai, Maharashtra',
+        jobtype : ['SEO Services', ' Website SEO Audit']
+    },
+    'QA and PMO':{
+        position: 'QA and PMO',
+        location : 'Navi Mumbai, Maharashtra',
+        jobtype : ['SEO Services', ' Website SEO Audit']
+    },
+    'Social':{
+        position: 'Social',
+        location : 'Navi Mumbai, Maharashtra',
+        jobtype : ['SEO Services', ' Website SEO Audit']
+    },
+    
 }
 
 var jobtabs = document.getElementById('joblist');
@@ -148,9 +212,9 @@ var jobTabContent = document.getElementById('jobcard')
 // }
 
 var nextBtn = document.getElementById('nextBtn');
-var maxTab = 4;
+var maxTab = 6;
 var currTab = 0;
-var nextTab = 4;
+var nextTab = 6;
 
 jobtabscnt.forEach( function(tabitem){
     var tablistItem = document.createElement('li');
@@ -211,7 +275,7 @@ nextBtn.onclick = function(){
     var tabListItems = document.querySelectorAll('#joblist li');
     jobtabs.classList.add('shift-left');
     setTimeout(function(){
-        tabListItems[0].classList.add('hidden');
+        // tabListItems[0].classList.add('hidden');
         tabListItems[nextTab].classList.remove('hidden');
         jobtabs.classList.remove('shift-left');
         nextTab++;
