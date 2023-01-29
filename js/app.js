@@ -116,17 +116,18 @@ window.onload = function () {
   var nextBtn = document.getElementById('nextBtn')
   var prevBtn = document.getElementById('prevBtn')
   prevBtn.style.display = 'none'
-  var curIndex = 0
+
+  let curIndex = 0
   var displayItem = 5
 
-  carousel.style.tranform = `translateX(-${items[curIndex].offsetLeft}px)`
+  carousel.style.transform = `translateX(-${items[curIndex].offsetLeft}px)`
 
   nextBtn.addEventListener('click', () => {
     if (curIndex === items.length - displayItem) return
-    carousel.style.transition = 'transform 0.4s ease-in-out'
-    // carousel.style.transform = `translateX(-${items[currentIndex].offsetLeft}px)`;
-    carousel.style.transform = `translateX(-${items[curIndex].offsetLeft}px)`
     curIndex++
+    carousel.style.transition = 'transform 0.4s ease-in-out'
+    carousel.style.transform = `translateX(-${items[curIndex].offsetLeft}px)`
+
     prevBtn.style.display = 'block'
     carousel.style.marginLeft = '40px'
     if (curIndex >= items.length - displayItem) {
