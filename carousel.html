@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+<style>
+.carouselbg{ width: 600px; overflow: hidden; margin: 0 auto;}
+.joblistitem{
+  border-top: 1px solid #888891;
+  border-bottom: 1px solid #888891;
+  padding: 10px 0;
+  position: relative;
+  
+
+}
+
+#joblist {
+  color: #fff;
+  list-style-type: none;
+  display:inline-flex;
+  width: 100%;
+  /* overflow-x: auto;
+  /* overflow-y: hidden; */
+  height: 40px;
+  -webkit-overflow-scrolling: touch;
+  
+}
+
+#joblist li {
+  color: #888891;
+  /* margin: 0 30px 0 0; */
+  padding: 0 30px 0 0;
+  display:inline-block;
+  width: 100%;
+  white-space:nowrap;
+}
+
+
+
+
+    </style>
+</head>
+<body>
+    <div class="carouselbg">
+    <div class="carousel">
+        <ul id="joblist">
+
+        </ul>
+        <!-- <div class="carousel-item">Item 1</div>
+        <div class="carousel-item">Item 2</div>
+        <div class="carousel-item">Item 3</div>
+        <div class="carousel-item">Item 4</div>
+        <div class="carousel-item">Item 5</div> -->
+      </div>
+      
+      <button id="prev">Prev</button>
+      <button id="next">Next</button>
+   
+</div>
+
+<script>
+var jobtabscnt = ['ALL', 'Accounts & Finance','Admin','Adobe', 'Business Alliance' , 'Client Success', 'Ad Management & Measurement','Data Solutions', 'QA and PMO', 'Social'];
+jobtabs = document.getElementById('joblist');
+jobtabscnt.forEach( (tabitem)=>{
+    var tablistitem = document.createElement('li');
+    tablistitem.innerHTML = tabitem;
+
+    jobtabs.appendChild(tablistitem)
+
+})
+const carousel = document.querySelector('.carousel');
+const items = document.querySelectorAll('#joblist li');
+const prevBtn = document.querySelector('#prev');
+const nextBtn = document.querySelector('#next');
+prevBtn.style.display = 'none'
+
+let currentIndex = 0;
+const displayCount = 3;
+
+carousel.style.transform = `translateX(-${items[currentIndex].offsetLeft}px)`;
+
+prevBtn.addEventListener('click', () => {
+  if (currentIndex === 0) return;
+  currentIndex--;
+  carousel.style.transition = 'transform 0.4s ease-in-out';
+  carousel.style.transform = `translateX(-${items[currentIndex].offsetLeft}px)`;
+  nextBtn.style.display = 'block';
+  if(currentIndex <= 0){
+  prevBtn.style.display = 'none'
+
+  }
+
+});
+
+nextBtn.addEventListener('click', () => {
+  if (currentIndex === items.length - displayCount) return;
+  currentIndex++;
+  carousel.style.transition = 'transform 0.4s ease-in-out';
+  carousel.style.transform = `translateX(-${items[currentIndex].offsetLeft}px)`;
+  prevBtn.style.display = 'block'
+  if(currentIndex >= items.length -3){
+    nextBtn.style.display = 'none'
+  }
+  
+});
+
+
+
+
+
+
+
+
+
+      </script>
+</body>
+</html>
