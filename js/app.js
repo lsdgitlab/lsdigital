@@ -50,7 +50,7 @@ window.onload = function () {
       jobtype: ['Full Time', 'Front End'],
     },
     Adobe: {
-      position: 'Programmatic Buying',
+      position: 'Adobe Developer',
       location: 'Navi Mumbai, Maharashtra',
       jobtype: ['Full Time', 'Front End'],
     },
@@ -110,6 +110,7 @@ window.onload = function () {
     jobtabs.appendChild(tablistItem)
     currTab++
   })
+
   // code use for job TAB carousel
   var carousel = document.querySelector('.carouselbg')
   var items = document.querySelectorAll('#joblist li')
@@ -119,6 +120,17 @@ window.onload = function () {
 
   let curIndex = 0
   var displayItem = 5
+  
+  function displayCount(){
+    if(window.innerWidth < 768){
+      displayItem = 2
+    }else{
+      displayItem = 5
+    }
+  }
+  displayCount();
+
+  window.addEventListener('resize', displayCount);
 
   carousel.style.transform = `translateX(-${items[curIndex].offsetLeft}px)`
 
@@ -129,7 +141,7 @@ window.onload = function () {
     carousel.style.transform = `translateX(-${items[curIndex].offsetLeft}px)`
 
     prevBtn.style.display = 'block'
-    carousel.style.marginLeft = '40px'
+    carousel.style.marginLeft = '50px'
     if (curIndex >= items.length - displayItem) {
       nextBtn.style.display = 'none'
     }
