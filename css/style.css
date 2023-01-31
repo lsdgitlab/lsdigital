@@ -291,7 +291,7 @@ li { margin: 0; padding: 0;}
 .new-audiance .audiance-txt{font-weight: 700;font-size: 32px;line-height: 42px;letter-spacing: -0.01em;color: #202025; margin: 0 auto; margin-top: 24px; margin-bottom: 14px;}
 .calu {margin-bottom: 70px;}
 .new-audiance .audiance-smt{font-weight: 500;font-size: 16px;line-height: 22px;color: #888891; margin: 0 auto;}
-.new-audiance .txt-box{max-width: 410px;width: 100%;min-height: 268px;background: #F2F2F3;opacity: 0.7;border-radius: 8px;padding: 72px 104px 72px 42px; margin-right: 14px; }
+.new-audiance .txt-box{max-width: 410px;width: 100%;min-height: 268px;background: #F2F2F3;opacity: 0.7;border-radius: 8px;padding: 72px 104px 72px 42px; margin-right: 14px;    margin-bottom: 14px; }
 .new-audiance .txt-box .hed{font-weight: 700;font-size: 72px;line-height: 91px;letter-spacing: -0.01em;color: #034EA2;margin: 0 auto;}
 .new-audiance .txt-box .sub-txt{font-weight: 400;font-size: 22px;line-height: 120%;letter-spacing: -0.01em;color: #202025;margin: 0 auto;min-height: 58px;}
 .social-mediacrea{margin-bottom: 60px;}
@@ -577,6 +577,9 @@ h1 {
 	.maincnt{max-width: 100%;padding: 0 20px;}
   .journey-form .form ul li {padding: 14px 0 5px 16px;}
   .journey-form .form li label {font-size: 14px;}
+  .upbox {
+    right: 2%;
+}
 }
 /* @media screen and (max-width: 1200px) {.container{max-width: 100%;padding: 0 20px ;}
 } */
@@ -590,9 +593,14 @@ h1 {
 	.thindustry .industry .industry-first .indtxt {font-size: 24px;line-height: 32px;}
 	.thindustry .industry .industry-first .indbtmtxt {font-size: 16px;line-height: 16px;margin-bottom: 80px;}
 	.slider .thumbnail .sub-txt {padding: 4px;margin: 0 auto;font-size: 12px;top: 3px;right: 4px;}
-  .journey-form .form ul li {
-    padding: 14px 0 5px 16px;
-}
+  .journey-form .form ul li { padding: 14px 0 5px 16px;}
+
+  .socmdcr {    justify-content: center;}
+  .short-film {justify-content: center;}
+  .work-smbox {flex-direction: row;}
+  .upbox { right: 29%;}
+  .cre-smbox { flex-direction: row;}
+ 
 }
 
 @media screen and (max-width: 907px){
@@ -695,7 +703,17 @@ h1 {
 .journey-form .form select {padding: 16px;}
 
 
+/* Creative_portfolio start */
+.Workbrands {  align-items: center;}
+.socmdcr {    justify-content: center;}
+.short-film {justify-content: center;}
+.work-smbox {flex-direction: row;}
+.short-films h2 {text-align: center;}
+.cre-smbox {flex-direction: row;}
+.upbox {right: 2%;}
 
+
+/* Creative_portfolio end */
 
 }
 
