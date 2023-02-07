@@ -631,7 +631,7 @@ h1 {
   .popup-content {padding: 7px;width: 88%;margin-top: 40px;margin-top: -180px; top: 50%;}
   .Workbrands {align-items: inherit; justify-content: center;
 }
-  .w-50 {width: 100%;}
+  /* .w-50 {width: 100%;} */
   .maincnt .first .w-50 {width: 100%;}
  .space-ld .w-50 {width: 100%;}
  .industry .w-50 {width: 100%;}
@@ -655,9 +655,7 @@ h1 {
 @media screen and (max-width: 767px){
  	.w-60{ width: 100%;}
 	.w-40{ width: 100%;}
-	.w-50 {width: 100%;}
-
-  
+	/* .w-50 {width: 100%;} */
 
   /* LDTV start  */
   .card {width:100%;height: 223px;}
